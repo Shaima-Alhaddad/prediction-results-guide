@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MultiFOLD Results – Help Guide</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 
   <style>
@@ -16,216 +16,159 @@
       Roboto, sans-serif;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.6s ease-out;
+    .divider {
+      border-top: 1px solid rgba(148,163,184,0.2);
+      margin: 16px 0;
     }
   </style>
+
 </head>
 
 <body class="h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
 
-<div class="w-full h-full overflow-auto">
-  <div class="min-h-full relative">
+<div class="max-w-3xl mx-auto px-6 py-16 text-white">
 
-    <!-- Background -->
-    <div class="absolute inset-0 opacity-30 pointer-events-none"
-         style="background-image:
-           radial-gradient(circle at 20% 50%, rgba(99,102,241,0.1), transparent 50%),
-           radial-gradient(circle at 80% 80%, rgba(59,130,246,0.1), transparent 50%);">
-    </div>
+<h1 class="text-4xl font-bold mb-4">MultiFOLD – Results Help Guide</h1>
+<p class="text-slate-300 mb-10">
+Use this guide to interpret prediction confidence, colouring, and scores.
+</p>
 
-    <div class="relative z-10 max-w-3xl mx-auto px-6 py-16">
+<!-- Key Info -->
 
-      <!-- Header -->
-      <div class="mb-10 animate-fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          MultiFOLD – Results Help Guide
-        </h1>
-        <p class="text-slate-300">
-          Use this guide to interpret prediction confidence, colouring, and scores.
-        </p>
-      </div>
+<div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12">
+<h2 class="text-2xl font-bold mb-6">Key Information</h2>
 
-      <!-- Key Information -->
-      <div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12 animate-fade-in">
-        <h2 class="text-2xl font-bold text-white mb-6">Key Information</h2>
+<h3 class="font-semibold">Show Chains</h3>
+<p class="text-slate-300 mb-4">
+Displays the number of chains in the predicted structure.
+</p>
 
-        <div>
-          <h3 class="text-lg font-semibold text-white mb-2">Chain Coloring</h3>
-          <ul class="text-slate-300 ml-6 list-disc">
-            <li><span class="text-blue-400 font-semibold">Blue</span>: Accurate prediction</li>
-            <li><span class="text-red-400 font-semibold">Red</span>: Low confidence</li>
-          </ul>
-        </div>
-      </div>
+<h3 class="font-semibold">Show Quality</h3>
+<p class="text-slate-300">Colours the structure by prediction quality:</p>
+<ul class="ml-6 list-disc text-slate-300">
+<li><span class="text-blue-400">Blue</span>: Higher confidence</li>
+<li><span class="text-red-400">Red</span>: Lower confidence</li>
+</ul>
+</div>
 
-      <!-- Score Meanings -->
-      <div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12 animate-fade-in">
-        <h2 class="text-2xl font-bold text-white mb-6">Score Meanings</h2>
+<!-- Scores -->
 
-        <p class="text-slate-300 mb-6">
-          These scores help assess model confidence, structural accuracy, and interface quality.
-          Most scores range from <strong>0 to 1</strong>, where values closer to
-          <strong>1 indicate higher confidence or better predicted quality</strong>.
-          Some scores, such as pLDDT, use a different scale.
-        </p>
+<div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12">
+<h2 class="text-2xl font-bold mb-6">Score Meanings</h2>
 
-        <div class="space-y-6">
+<p class="text-slate-300 mb-6">
+Most scores range from 0 to 1. Values closer to 1 indicate higher confidence.
+Error-based scores are interpreted oppositely (lower is better).
+</p>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Assembly Score</h3>
-            <p class="text-slate-300 ml-4">
-              Reflects confidence in inter-chain interactions and structure assembly.
-              Higher values suggest greater confidence in how the chains are arranged together.
-            </p>
-          </div>
+<div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Interface Score</h3>
-            <p class="text-slate-300 ml-4">
-              Indicates confidence in predicted protein-protein interfaces.
-              Higher values suggest greater confidence in the predicted contact regions between chains.
-            </p>
-          </div>
+<h3>Assembly Score</h3>
+<p>Confidence in overall chain assembly.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">ModFOLDIA</h3>
-            <p class="text-slate-300 ml-4">
-              Overall model quality score for multimer predictions.
-              Higher values indicate greater overall confidence.
-            </p>
-          </div>
+<h3>Interface Score</h3>
+<p>Confidence in predicted interfaces.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">pLDDT</h3>
-            <p class="text-slate-300 ml-4 mb-2">
-              Per-residue confidence score that indicates how reliable the prediction is for local regions of the structure.
-            </p>
-            <ul class="text-slate-300 ml-10 list-disc text-sm">
-              <li><strong>90–100:</strong> Very high confidence</li>
-              <li><strong>70–90:</strong> High confidence</li>
-              <li><strong>50–70:</strong> Medium confidence</li>
-              <li><strong>&lt;50:</strong> Low confidence</li>
-            </ul>
-          </div>
+<h3>ModFOLDIA</h3>
+<p>Overall model quality score.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">pTM</h3>
-            <p class="text-slate-300 ml-4">
-              Predicted Template Modelling score. It estimates confidence in the overall fold or global structure.
-              Values closer to 1 indicate higher confidence in the predicted structure.
-            </p>
-          </div>
+<h3>pLDDT</h3>
+<ul class="ml-6 list-disc text-sm">
+<li>90–100: Very high</li>
+<li>70–90: High</li>
+<li>50–70: Medium</li>
+<li>&lt;50: Low</li>
+</ul>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">ipTM</h3>
-            <p class="text-slate-300 ml-4">
-              Interface predicted TM score. It estimates confidence in the relative positioning of different chains.
-              Values closer to 1 indicate more reliable placement of chains within a complex.
-            </p>
-          </div>
+<h3>pTM</h3>
+<p>Global structure confidence.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">pDockQ</h3>
-            <p class="text-slate-300 ml-4">
-              Predicted DockQ score for protein-protein docking quality.
-              Values closer to 1 indicate higher confidence in the predicted interface.
-            </p>
-          </div>
+<h3>ipTM</h3>
+<p>Interface positioning confidence.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">pDockQ2</h3>
-            <p class="text-slate-300 ml-4">
-              Updated DockQ-based score that evaluates interface quality with additional confidence information.
-              Values closer to 1 indicate more reliable predicted interfaces.
-            </p>
-          </div>
+<h3>pDockQ / pDockQ2</h3>
+<p>Docking/interface quality.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Cons_IF</h3>
-            <p class="text-slate-300 ml-4">
-              Consensus interface score. Values closer to 1 indicate stronger agreement and higher confidence in the interface region.
-            </p>
-          </div>
+<h3>Cons_IF / Cons_fold / Cons_total</h3>
+<p>Consensus agreement scores.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Cons_fold</h3>
-            <p class="text-slate-300 ml-4">
-              Consensus fold score. Values closer to 1 indicate more consistent predicted folds.
-            </p>
-          </div>
+<h3>globalIF</h3>
+<p>Global interface quality.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Cons_total</h3>
-            <p class="text-slate-300 ml-4">
-              Combined consensus score. Values closer to 1 indicate higher overall consistency and confidence.
-            </p>
-          </div>
+<h3>VoroMQA</h3>
+<p>Structure quality based on atomic packing.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">globalIF</h3>
-            <p class="text-slate-300 ml-4">
-              Global interface quality score. Values closer to 1 indicate higher confidence in interface organisation.
-            </p>
-          </div>
+<h3>CDA</h3>
+<p>Contact-based accuracy score.</p>
+<div class="divider"></div>
 
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-2">Missing scores</h3>
-            <p class="text-slate-300 ml-4">
-              A dash or empty value indicates that the score was not calculated or is not available.
-            </p>
-          </div>
+<h3>LDDTjury / CADjury / QSjury / DockQjury</h3>
+<p>Consensus scores for structure and interfaces.</p>
+<div class="divider"></div>
 
-        </div>
-      </div>
+<h3>GDT_TSjury / TMjury</h3>
+<p>Global structural similarity scores.</p>
+<div class="divider"></div>
 
-      <!-- FAQ -->
-      <div class="animate-fade-in">
-        <h2 class="text-3xl font-bold text-white mb-8">FAQ</h2>
+<h3>VoroIFglobal / VoroIFlocal</h3>
+<p>Interface quality scores.</p>
+<div class="divider"></div>
 
-        <div class="space-y-6">
+<h3>ICSjury / IPSjury / iLDDTjury</h3>
+<p>Interface consensus scores.</p>
+<div class="divider"></div>
 
-          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
-            <h3 class="text-white font-semibold mb-2">What does a high pTM score mean?</h3>
-            <p class="text-slate-300">
-              A pTM score ranges from 0 to 1. Values closer to 1 indicate higher confidence in the overall predicted structure.
-            </p>
-          </div>
+<h3>ipSAE / ipSAE_d0chn / ipSAE_d0dom</h3>
+<p>Error-based interface scores (lower is better).</p>
+<div class="divider"></div>
 
-          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
-            <h3 class="text-white font-semibold mb-2">Why are some regions red?</h3>
-            <p class="text-slate-300">
-              Red regions indicate low confidence predictions (pLDDT &lt; 50).
-            </p>
-          </div>
+<h3>Missing scores</h3>
+<p>A dash indicates the score was not available.</p>
 
-          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
-            <h3 class="text-white font-semibold mb-2">How should Assembly Score be interpreted?</h3>
-            <p class="text-slate-300">
-              Assembly Score reflects confidence in how chains interact and are arranged together.
-              Higher values suggest greater confidence in the predicted assembly.
-            </p>
-          </div>
+</div>
+</div>
 
-        </div>
-      </div>
+<!-- FAQ -->
 
-      <!-- Contact -->
-      <div class="mt-16 text-center animate-fade-in">
-        <h3 class="text-2xl font-bold text-white mb-3">Need help?</h3>
-        <p class="text-slate-300">
-          Prof. Liam McGuffin — l.j.mcguffin@reading.ac.uk<br>
-          Shaima Alhaddad — s.n.k.alhaddad@pgr.reading.ac.uk
-        </p>
-      </div>
+<div class="mb-12">
+<h2 class="text-3xl font-bold mb-6">FAQ</h2>
 
-    </div>
-  </div>
+<h3 class="font-semibold">What does a high pTM score mean?</h3>
+<p class="text-slate-300 mb-4">
+A pTM score ranges from 0 to 1. Values closer to 1 indicate higher confidence.
+</p>
+
+<h3 class="font-semibold">Why are some regions red?</h3>
+<p class="text-slate-300 mb-4">
+Red regions indicate low confidence predictions.
+</p>
+
+<h3 class="font-semibold">How should Assembly Score be interpreted?</h3>
+<p class="text-slate-300">
+Higher values indicate more reliable chain arrangement.
+</p>
+</div>
+
+<!-- Contact -->
+
+<div class="text-center">
+<h3 class="text-2xl font-bold mb-3">Need help?</h3>
+<p class="text-slate-300">
+Prof. Liam McGuffin — l.j.mcguffin@reading.ac.uk<br>
+Shaima Alhaddad — s.n.k.alhaddad@pgr.reading.ac.uk
+</p>
+</div>
+
 </div>
 
 </body>
