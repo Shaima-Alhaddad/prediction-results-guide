@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiFOLD Results – Help Guide</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, sans-serif;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body class="h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+
+<div class="w-full h-full overflow-auto">
+  <div class="min-h-full relative">
+
+    <!-- Background -->
+    <div class="absolute inset-0 opacity-30 pointer-events-none"
+         style="background-image:
+           radial-gradient(circle at 20% 50%, rgba(99,102,241,0.1), transparent 50%),
+           radial-gradient(circle at 80% 80%, rgba(59,130,246,0.1), transparent 50%);">
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 py-16">
+
+      <!-- Header -->
+      <div class="mb-10 animate-fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          MultiFOLD – Results Help Guide
+        </h1>
+        <p class="text-slate-300">
+          Use this guide to interpret prediction confidence, colouring, and scores.
+        </p>
+      </div>
+
+      <!-- Key Info -->
+      <div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12 animate-fade-in">
+        <h2 class="text-2xl font-bold text-white mb-6">Key Information</h2>
+
+        <!-- Chain Coloring -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-white mb-2">Chain Coloring</h3>
+          <ul class="text-slate-300 ml-6 list-disc">
+            <li><span class="text-blue-400 font-semibold">Blue</span>: Accurate prediction</li>
+            <li><span class="text-red-400 font-semibold">Red</span>: Low confidence</li>
+          </ul>
+        </div>
+
+        <!-- pLDDT -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-white mb-2">Prediction Quality (pLDDT)</h3>
+          <ul class="text-slate-300 ml-6 list-disc text-sm">
+            <li><strong>90–100:</strong> Very high confidence</li>
+            <li><strong>70–90:</strong> High confidence</li>
+            <li><strong>50–70:</strong> Medium confidence</li>
+            <li><strong>&lt;50:</strong> Low confidence</li>
+          </ul>
+        </div>
+
+        <!-- pTM -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-white mb-2">pTM Score</h3>
+          <p class="text-slate-300 ml-4">
+            Indicates confidence in the overall predicted structure.
+            Values closer to 1.0 are more reliable.
+          </p>
+        </div>
+
+        <!-- Assembly -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-white mb-2">Assembly Score</h3>
+          <p class="text-slate-300 ml-4">
+            Reflects confidence in inter-chain interactions and structure assembly.
+          </p>
+        </div>
+
+        <!-- Interface -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-2">Interface Score</h3>
+          <p class="text-slate-300 ml-4">
+            Indicates confidence in predicted protein–protein interfaces.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="animate-fade-in">
+        <h2 class="text-3xl font-bold text-white mb-8">FAQ</h2>
+
+        <div class="space-y-6">
+
+          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
+            <h3 class="text-white font-semibold mb-2">What does a high pTM score mean?</h3>
+            <p class="text-slate-300">
+              A value above 0.8 suggests a reliable predicted structure.
+            </p>
+          </div>
+
+          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
+            <h3 class="text-white font-semibold mb-2">Why are some regions red?</h3>
+            <p class="text-slate-300">
+              Red regions indicate low confidence predictions (pLDDT &lt; 50).
+            </p>
+          </div>
+
+          <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
+            <h3 class="text-white font-semibold mb-2">How should Assembly Score be interpreted?</h3>
+            <p class="text-slate-300">
+              Lower scores suggest uncertainty in chain positioning.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="mt-16 text-center animate-fade-in">
+        <h3 class="text-2xl font-bold text-white mb-3">Need help?</h3>
+        <p class="text-slate-300">
+          Prof. Liam McGuffin — l.j.mcguffin@reading.ac.uk<br>
+          Shaima Alhaddad — s.n.k.alhaddad@pgr.reading.ac.uk
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
