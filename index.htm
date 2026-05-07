@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -51,53 +51,136 @@
         </p>
       </div>
 
-      <!-- Key Info -->
+      <!-- Key Information -->
       <div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12 animate-fade-in">
         <h2 class="text-2xl font-bold text-white mb-6">Key Information</h2>
 
-        <!-- Chain Coloring -->
-        <div class="mb-6">
+        <div>
           <h3 class="text-lg font-semibold text-white mb-2">Chain Coloring</h3>
           <ul class="text-slate-300 ml-6 list-disc">
             <li><span class="text-blue-400 font-semibold">Blue</span>: Accurate prediction</li>
             <li><span class="text-red-400 font-semibold">Red</span>: Low confidence</li>
           </ul>
         </div>
+      </div>
 
-        <!-- pLDDT -->
-        <div class="mb-6">
-          <h3 class="text-lg font-semibold text-white mb-2">Prediction Quality (pLDDT)</h3>
-          <ul class="text-slate-300 ml-6 list-disc text-sm">
-            <li><strong>90–100:</strong> Very high confidence</li>
-            <li><strong>70–90:</strong> High confidence</li>
-            <li><strong>50–70:</strong> Medium confidence</li>
-            <li><strong>&lt;50:</strong> Low confidence</li>
-          </ul>
-        </div>
+      <!-- Score Meanings -->
+      <div class="bg-black/40 border border-slate-700/50 rounded-2xl p-8 mb-12 animate-fade-in">
+        <h2 class="text-2xl font-bold text-white mb-6">Score Meanings</h2>
 
-        <!-- pTM -->
-        <div class="mb-6">
-          <h3 class="text-lg font-semibold text-white mb-2">pTM Score</h3>
-          <p class="text-slate-300 ml-4">
-            Indicates confidence in the overall predicted structure.
-            Values closer to 1.0 are more reliable.
-          </p>
-        </div>
+        <p class="text-slate-300 mb-6">
+          These scores help assess model confidence, structural accuracy, and interface quality.
+          Most scores range from <strong>0 to 1</strong>, where values closer to
+          <strong>1 indicate higher confidence or better predicted quality</strong>.
+          Some scores, such as pLDDT, use a different scale.
+        </p>
 
-        <!-- Assembly -->
-        <div class="mb-6">
-          <h3 class="text-lg font-semibold text-white mb-2">Assembly Score</h3>
-          <p class="text-slate-300 ml-4">
-            Reflects confidence in inter-chain interactions and structure assembly.
-          </p>
-        </div>
+        <div class="space-y-6">
 
-        <!-- Interface -->
-        <div>
-          <h3 class="text-lg font-semibold text-white mb-2">Interface Score</h3>
-          <p class="text-slate-300 ml-4">
-            Indicates confidence in predicted protein–protein interfaces.
-          </p>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Assembly Score</h3>
+            <p class="text-slate-300 ml-4">
+              Reflects confidence in inter-chain interactions and structure assembly.
+              Higher values suggest greater confidence in how the chains are arranged together.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Interface Score</h3>
+            <p class="text-slate-300 ml-4">
+              Indicates confidence in predicted protein-protein interfaces.
+              Higher values suggest greater confidence in the predicted contact regions between chains.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">ModFOLDIA</h3>
+            <p class="text-slate-300 ml-4">
+              Overall model quality score for multimer predictions.
+              Higher values indicate greater overall confidence.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">pLDDT</h3>
+            <p class="text-slate-300 ml-4 mb-2">
+              Per-residue confidence score that indicates how reliable the prediction is for local regions of the structure.
+            </p>
+            <ul class="text-slate-300 ml-10 list-disc text-sm">
+              <li><strong>90–100:</strong> Very high confidence</li>
+              <li><strong>70–90:</strong> High confidence</li>
+              <li><strong>50–70:</strong> Medium confidence</li>
+              <li><strong>&lt;50:</strong> Low confidence</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">pTM</h3>
+            <p class="text-slate-300 ml-4">
+              Predicted Template Modelling score. It estimates confidence in the overall fold or global structure.
+              Values closer to 1 indicate higher confidence in the predicted structure.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">ipTM</h3>
+            <p class="text-slate-300 ml-4">
+              Interface predicted TM score. It estimates confidence in the relative positioning of different chains.
+              Values closer to 1 indicate more reliable placement of chains within a complex.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">pDockQ</h3>
+            <p class="text-slate-300 ml-4">
+              Predicted DockQ score for protein-protein docking quality.
+              Values closer to 1 indicate higher confidence in the predicted interface.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">pDockQ2</h3>
+            <p class="text-slate-300 ml-4">
+              Updated DockQ-based score that evaluates interface quality with additional confidence information.
+              Values closer to 1 indicate more reliable predicted interfaces.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Cons_IF</h3>
+            <p class="text-slate-300 ml-4">
+              Consensus interface score. Values closer to 1 indicate stronger agreement and higher confidence in the interface region.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Cons_fold</h3>
+            <p class="text-slate-300 ml-4">
+              Consensus fold score. Values closer to 1 indicate more consistent predicted folds.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Cons_total</h3>
+            <p class="text-slate-300 ml-4">
+              Combined consensus score. Values closer to 1 indicate higher overall consistency and confidence.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">globalIF</h3>
+            <p class="text-slate-300 ml-4">
+              Global interface quality score. Values closer to 1 indicate higher confidence in interface organisation.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Missing scores</h3>
+            <p class="text-slate-300 ml-4">
+              A dash or empty value indicates that the score was not calculated or is not available.
+            </p>
+          </div>
+
         </div>
       </div>
 
@@ -110,7 +193,7 @@
           <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
             <h3 class="text-white font-semibold mb-2">What does a high pTM score mean?</h3>
             <p class="text-slate-300">
-              A value above 0.8 suggests a reliable predicted structure.
+              A pTM score ranges from 0 to 1. Values closer to 1 indicate higher confidence in the overall predicted structure.
             </p>
           </div>
 
@@ -124,7 +207,8 @@
           <div class="bg-black/40 border border-slate-700/50 rounded-xl p-6">
             <h3 class="text-white font-semibold mb-2">How should Assembly Score be interpreted?</h3>
             <p class="text-slate-300">
-              Lower scores suggest uncertainty in chain positioning.
+              Assembly Score reflects confidence in how chains interact and are arranged together.
+              Higher values suggest greater confidence in the predicted assembly.
             </p>
           </div>
 
@@ -146,3 +230,4 @@
 
 </body>
 </html>
+
